@@ -1,6 +1,5 @@
 package org.frameworktesting;
 
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -13,7 +12,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-
 public class BaseClassAllMethods {
 
 	public static WebDriver driver;
@@ -21,14 +19,11 @@ public class BaseClassAllMethods {
 	public static Robot r;
 	public static JavascriptExecutor js;
 
-	
 	// Browser methods
-	
+
 	public static void launchBrowser() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
-		//driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 	}
 
@@ -68,9 +63,8 @@ public class BaseClassAllMethods {
 		System.out.println("Page Source: " + driver.getPageSource());
 	}
 
-	
 	// WebElement methods
-	
+
 	public static WebElement find(By locator) {
 		return driver.findElement(locator);
 	}
@@ -82,7 +76,6 @@ public class BaseClassAllMethods {
 	public static void toClick(WebElement e) {
 		e.click();
 	}
-	
 
 	public static void toType(WebElement e, String text) {
 		e.sendKeys(text);
@@ -104,7 +97,6 @@ public class BaseClassAllMethods {
 		System.out.println("Attribute [" + attr + "]: " + e.getAttribute(attr));
 	}
 
-	
 	public static void toGetTagName(WebElement e) {
 		System.out.println("Tag Name: " + e.getTagName());
 	}
@@ -129,9 +121,6 @@ public class BaseClassAllMethods {
 		System.out.println("Size: " + e.getSize());
 	}
 
-	
-
-	
 	// Frames & Windows methods
 
 	public static void toSwitchFrame(int index) {
@@ -169,12 +158,9 @@ public class BaseClassAllMethods {
 				break;
 		}
 	}
-	
-	
 
-	
 	// Alerts methods
-	
+
 	public static void toAcceptAlert() {
 		driver.switchTo().alert().accept();
 	}
@@ -187,9 +173,8 @@ public class BaseClassAllMethods {
 		System.out.println("Alert Text: " + driver.switchTo().alert().getText());
 	}
 
-	
 	// Dropdown methods
-	
+
 	public static void toSelectByText(WebElement e, String text) {
 		new Select(e).selectByVisibleText(text);
 	}
@@ -213,7 +198,6 @@ public class BaseClassAllMethods {
 		System.out.println("Is Multiple: " + new Select(e).isMultiple());
 	}
 
-	
 	// Actions methods
 
 	public static void toActionClick(WebElement e) {
@@ -241,11 +225,8 @@ public class BaseClassAllMethods {
 		a.sendKeys(keys).perform();
 	}
 
-	
-
-	
 	// Robot methods
-	
+
 	public static void toPressEnter() throws AWTException {
 
 		r = new Robot();
@@ -263,32 +244,29 @@ public class BaseClassAllMethods {
 		r.keyPress(KeyEvent.VK_ESCAPE);
 		r.keyRelease(KeyEvent.VK_ESCAPE);
 	}
-	
+
 	public static void toPressControl() {
 		r.keyPress(KeyEvent.VK_CONTROL);
 		r.keyRelease(KeyEvent.VK_CONTROL);
 	}
-	
+
 	public static void toPressDown() {
 		r.keyPress(KeyEvent.VK_DOWN);
 		r.keyRelease(KeyEvent.VK_DOWN);
 	}
-	
+
 	public static void toPaste() {
 		r.keyPress(KeyEvent.VK_CONTROL);
 		r.keyRelease(KeyEvent.VK_V);
 	}
-	
+
 	public static void toCopy() {
 		r.keyPress(KeyEvent.VK_CONTROL);
 		r.keyRelease(KeyEvent.VK_C);
 	}
 
-	
-
-	
 	// JavaScript Executor methods
-	
+
 	public static void jsClick(WebElement e) {
 
 		js = (JavascriptExecutor) driver;
@@ -305,16 +283,12 @@ public class BaseClassAllMethods {
 				+ js.executeScript("return arguments[0].getAttribute('" + attr + "');", e));
 	}
 
-	
-
-
 	// Screenshots methods
-	
+
 	public static void screenshotToFile(String path) throws IOException {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File(path));
 		System.out.println("Screenshot saved to: " + path);
 	}
 
-	
 }
