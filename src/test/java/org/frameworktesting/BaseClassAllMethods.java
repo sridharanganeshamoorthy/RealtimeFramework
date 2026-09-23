@@ -21,9 +21,9 @@ public class BaseClassAllMethods {
 	public static Robot r;
 	public static JavascriptExecutor js;
 
-	// =========================
-	// Browser Setup & Navigation
-	// =========================
+	
+	// Browser methods
+	
 	public static void launchBrowser() {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -68,9 +68,9 @@ public class BaseClassAllMethods {
 		System.out.println("Page Source: " + driver.getPageSource());
 	}
 
-	// =========================
-	// WebElement Utilities
-	// =========================
+	
+	// WebElement methods
+	
 	public static WebElement find(By locator) {
 		return driver.findElement(locator);
 	}
@@ -131,9 +131,9 @@ public class BaseClassAllMethods {
 
 	
 
-	// =========================
-	// Frames & Windows
-	// =========================
+	
+	// Frames & Windows methods
+
 	public static void toSwitchFrame(int index) {
 		driver.switchTo().frame(index);
 	}
@@ -172,9 +172,9 @@ public class BaseClassAllMethods {
 	
 	
 
-	// =========================
-	// Alerts
-	// =========================
+	
+	// Alerts methods
+	
 	public static void toAcceptAlert() {
 		driver.switchTo().alert().accept();
 	}
@@ -187,9 +187,9 @@ public class BaseClassAllMethods {
 		System.out.println("Alert Text: " + driver.switchTo().alert().getText());
 	}
 
-	// =========================
-	// Dropdowns
-	// =========================
+	
+	// Dropdown methods
+	
 	public static void toSelectByText(WebElement e, String text) {
 		new Select(e).selectByVisibleText(text);
 	}
@@ -213,9 +213,9 @@ public class BaseClassAllMethods {
 		System.out.println("Is Multiple: " + new Select(e).isMultiple());
 	}
 
-	// =========================
-	// Actions (Mouse & Keyboard)
-	// =========================
+	
+	// Actions methods
+
 	public static void toActionClick(WebElement e) {
 		a = new Actions(driver);
 		a.click(e).perform();
@@ -241,17 +241,11 @@ public class BaseClassAllMethods {
 		a.sendKeys(keys).perform();
 	}
 
-	public static void toKeyDown(CharSequence key) {
-		a.keyDown(key).perform();
-	}
+	
 
-	public static void toKeyUp(CharSequence key) {
-		a.keyUp(key).perform();
-	}
-
-	// =========================
-	// Robot Utilities
-	// =========================
+	
+	// Robot methods
+	
 	public static void toPressEnter() throws AWTException {
 
 		r = new Robot();
@@ -292,9 +286,9 @@ public class BaseClassAllMethods {
 
 	
 
-	// =========================
-	// JavaScript Executor
-	// =========================
+	
+	// JavaScript Executor methods
+	
 	public static void jsClick(WebElement e) {
 
 		js = (JavascriptExecutor) driver;
@@ -313,9 +307,9 @@ public class BaseClassAllMethods {
 
 	
 
-	// =========================
-	// Screenshots
-	// =========================
+
+	// Screenshots methods
+	
 	public static void screenshotToFile(String path) throws IOException {
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(src, new File(path));
