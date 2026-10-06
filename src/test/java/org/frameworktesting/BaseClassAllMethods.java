@@ -32,7 +32,7 @@ public class BaseClassAllMethods {
 	    options.addArguments("--disable-gpu");
 	    options.addArguments("--window-size=1920,1080");
 	    
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 	}
 	
 	public static void toLoadURL(String url) {
