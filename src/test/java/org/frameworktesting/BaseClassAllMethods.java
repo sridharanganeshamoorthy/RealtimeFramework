@@ -26,7 +26,9 @@ public class BaseClassAllMethods {
 		
 		ChromeOptions options = new ChromeOptions();
 
-	    //options.addArguments("--headless");
+		if (Boolean.getBoolean("docker")) {
+	        options.addArguments("--headless");
+		}
 	    options.addArguments("--no-sandbox");
 	    options.addArguments("--disable-dev-shm-usage");
 	    options.addArguments("--disable-gpu");
