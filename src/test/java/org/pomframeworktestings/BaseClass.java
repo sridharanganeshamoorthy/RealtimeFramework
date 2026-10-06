@@ -1,4 +1,4 @@
-package org.frameworktesting;
+package org.pomframeworktestings;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-public class BaseClassAllMethods {
+public class BaseClass {
 
 	public static WebDriver driver;
 	public static Actions a;
@@ -23,19 +23,21 @@ public class BaseClassAllMethods {
 
 	public static void launchBrowser() {
 		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+
 	}
-	
+
 	public static void toLoadURL(String url) {
 		driver.get(url);
+	}
+
+	public static void toNavigateTo(String url) {
+		driver.navigate().to(url);
 	}
 	
 	public static void toMaximize() {
 		driver.manage().window().maximize();
 
-	}
-
-	public static void toNavigateTo(String url) {
-		driver.navigate().to(url);
 	}
 
 	public static void toBack() {
@@ -52,9 +54,6 @@ public class BaseClassAllMethods {
 
 	public static void toQuitBrowser() {
 		driver.quit();
-	}
-	public static void toCloseBrowser() {
-		driver.close();
 	}
 
 	public static void toGetTitle() {
@@ -99,10 +98,8 @@ public class BaseClassAllMethods {
 		System.out.println("Element Text: " + e.getText());
 	}
 
-	public static String toGetAttribute(WebElement e) {
-		//System.out.println("Attribute [" + attr + "]: " + e.getAttribute(attr));
-		String attribute = e.getAttribute("value");
-		return attribute;
+	public static void toGetAttribute(WebElement e, String attr) {
+		System.out.println("Attribute [" + attr + "]: " + e.getAttribute(attr));
 	}
 
 	public static void toGetTagName(WebElement e) {

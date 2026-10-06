@@ -1,10 +1,7 @@
 package org.frameworktesting;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 //if its diff package then have to import package
 public class mavenTesting extends BaseClass {
 
