@@ -3,7 +3,7 @@ package org.frameworktesting;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 //if its diff package then have to import package
-public class mavenTesting extends BaseClass {
+public class MavenCheck extends BaseClass {
 
 	public static void main(String[] args) {
 
