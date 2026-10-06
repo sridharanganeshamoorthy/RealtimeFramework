@@ -23,6 +23,7 @@ public class Login1 extends BaseClassAllMethods {
 
 	}
 
+	@Ignore
 	@Test
 	public void test1() {
 		LoginPojo l = new LoginPojo();

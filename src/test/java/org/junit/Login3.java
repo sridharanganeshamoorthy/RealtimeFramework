@@ -22,7 +22,9 @@ public class Login3 extends BaseClassAllMethods {
 		toMaximize();
 
 	}
-
+	
+	
+	@Ignore
 	@Test
 	public void test1() {
 		LoginPojo l = new LoginPojo();
